@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ExplicitAnimationExample extends StatefulWidget {
-  const ExplicitAnimationExample({super.key});
+class AnimatedColorPalette extends StatefulWidget {
+  const AnimatedColorPalette({super.key});
 
   @override
-  State<ExplicitAnimationExample> createState() => _ExplicitAnimationExampleState();
+  State<AnimatedColorPalette> createState() => _AnimatedColorPaletteState();
 }
 
-class _ExplicitAnimationExampleState extends State<ExplicitAnimationExample>
+class _AnimatedColorPaletteState extends State<AnimatedColorPalette>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Tween<double> _tween;
@@ -18,19 +18,19 @@ class _ExplicitAnimationExampleState extends State<ExplicitAnimationExample>
   void initState() {
     super.initState();
 
-    // Initialize the AnimationController
+    
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     );
 
-    // Define a Tween to animate from 0 to 300
+    
     _tween = Tween<double>(begin: 0, end: 300);
 
-    // Create the animation using the controller and tween
+   
     _animation = _tween.animate(_controller)
       ..addListener(() {
-        // Manually set the state to trigger a rebuild
+      
         setState(() {});
       })
       ..addStatusListener((status) {
